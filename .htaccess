@@ -1,0 +1,25 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /webmagang2/
+
+    # Prevent direct access to includes folder
+    RewriteRule ^includes/ - [F,L]
+
+    # Prevent direct access to database.sql
+    RewriteRule ^database\.sql$ - [F,L]
+
+    # Prevent direct access to config.php
+    RewriteRule ^config\.php$ - [F,L]
+
+    # Redirect to HTTPS (uncomment for production)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Set PHP error handling
+php_flag display_errors Off
+php_flag log_errors On
+php_value error_log logs/error.log

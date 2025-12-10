@@ -1,4 +1,5 @@
 <?php
+// Database Connection
 session_start();
 
 $host = 'localhost';
